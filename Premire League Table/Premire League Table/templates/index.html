@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Premier League Live Table</title>
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<meta http-equiv="refresh"
+content="60">
+
+<link rel="stylesheet"
+
+href="{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Premier League Live Standings</h1>
+
+<table>
+
+<tr>
+
+<th>#</th>
+<th>Club</th>
+<th>P</th>
+<th>W</th>
+<th>D</th>
+<th>L</th>
+<th>GD</th>
+<th>PTS</th>
+
+</tr>
+
+{% for team in teams %}
+
+<tr>
+
+<td>{{team.position}}</td>
+
+<td class="club">
+
+<img src="{{team.logo}}">
+
+{{team.name}}
+
+</td>
+
+<td>{{team.played}}</td>
+
+<td>{{team.won}}</td>
+
+<td>{{team.draw}}</td>
+
+<td>{{team.lost}}</td>
+
+<td>{{team.goalDiff}}</td>
+
+<td class="points">
+
+{{team.points}}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>
